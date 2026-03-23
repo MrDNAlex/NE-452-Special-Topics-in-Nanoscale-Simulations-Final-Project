@@ -3,7 +3,7 @@ cycler==0.12.1
 fonttools==4.62.1
 kiwisolver==1.5.0
 matplotlib==3.10.8
--e git+https://github.com/Nano-DNA-Studios/NCL.git@2d388915326d8a65adc221b6cedd2ed591e3c2c4#egg=ncl
+git+https://github.com/Nano-DNA-Studios/NCL.git@2d388915326d8a65adc221b6cedd2ed591e3c2c4
 numpy==2.4.3
 packaging==26.0
 pandas==3.0.1
