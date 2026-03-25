@@ -1,5 +1,4 @@
-from Alkanes.GeoOptMethane import runGeoOpt as runGeoOptMethane
-from Alkanes.GeoOptEthane import runGeoOpt as runGeoOptEthane
+from GeoOptAlkanes import RunAlkaneGeoOpt
 
-runGeoOptMethane()
-runGeoOptEthane()
+# Run Alkane GeoOpts
+RunAlkaneGeoOpt()
