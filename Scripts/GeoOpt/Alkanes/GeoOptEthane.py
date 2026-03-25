@@ -5,7 +5,7 @@ import time
 def runGeoOpt():
     cores = 8
     moleculeName = "Ethane"
-    moleculePath = "Molecules\XYZ-Literature\Alkanes\Ethane.xyz"
+    moleculePath = "Molecules\Literature-XYZ\Alkanes\Ethane.xyz"
     functionals = ["LDA", "PBE", "B3LYP", "wB97X-D3", "M062X"]
     basis = "DEF2-SVP"
     
