@@ -33,7 +33,7 @@ for path, dirs, files in os.walk("Data\\SinglePoint"):
 print(outputFiles)
 
 # Write the Data Frame
-for atom in ATOMS:
+for atom in ATOMS.keys():
     row = [atom]
     
     for func in FUNCTIONALS:
@@ -43,12 +43,17 @@ for atom in ATOMS:
     
     dataFrame.loc[len(dataFrame)] = row
 
+experimentalCorrection = pd.read_csv("Results/ExperimentalCorrections.csv")
+
+# Add the Experimental Enthalpy Corrections to reference later
+dataFrame["Experimental Enthalpy Correction"] = experimentalCorrection["Experimental Enthalpy Correction (Eh)"]
+
 # Add the Enthalpy Correction to all columns
-dataFrame["Enthalpy Correction"] = [getEnthalpyHartrees(T) for i in range(len(dataFrame))]
+dataFrame["Thermal Enthalpy Correction"] = [getEnthalpyHartrees(T) for i in range(len(dataFrame))]
 
 for i in range(len(FUNCTIONALS)):
     energyColumn = dataFrame[dataFrame.columns[i+1]]
-    dataFrame[f"{FUNCTIONALS[i]} Enthalpy"] = energyColumn.values + dataFrame["Enthalpy Correction"].values
+    dataFrame[f"{FUNCTIONALS[i]} Enthalpy"] = energyColumn.values + dataFrame["Thermal Enthalpy Correction"].values
 
 print(dataFrame)
-dataFrame.to_csv("Results/AtomEnergies.csv", index=False)
+dataFrame.to_csv("Results/AtomEnthalpies.csv", index=False)

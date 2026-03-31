@@ -1,5 +1,5 @@
 from ncl import Molecule
-from Data import FUNCTIONALS, MOLECULES, ATOMS, ATOMS_ELEMENTS
+from Data import MOLECULES, ATOMS_ELEMENTS
 import pandas as pd
 import os
 
