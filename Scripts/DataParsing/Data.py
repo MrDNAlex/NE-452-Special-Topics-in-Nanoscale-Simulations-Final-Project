@@ -26,14 +26,14 @@ MOLECULES = [
 ]
 
 # Define the Common Atoms
-ATOMS = [
-    "Hydrogen",
-    "Carbon",
-    "Nitrogen",
-    "Oxygen",
-    "Fluorine",
-    "Chlorine"
-]
+ATOMS = {
+    "Hydrogen" : 0,
+    "Carbon" : 1,
+    "Nitrogen" : 2,
+    "Oxygen" : 3,
+    "Fluorine" : 4,
+    "Chlorine" : 5
+} 
 
 # Define the Common Atoms
 ATOMS_ELEMENTS = [
