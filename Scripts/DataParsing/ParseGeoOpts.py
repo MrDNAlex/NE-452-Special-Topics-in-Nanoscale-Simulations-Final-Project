@@ -52,5 +52,5 @@ for mol in MOLECULES:
     dataFrame.loc[len(dataFrame)] = row
         
 print(dataFrame)
-dataFrame.to_csv("Results/MoleculeEnthalpies.csv")
+dataFrame.to_csv("Results/MoleculeEnthalpies.csv", index=False)
     
