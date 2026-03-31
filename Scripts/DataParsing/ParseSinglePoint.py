@@ -1,14 +1,14 @@
-
-# Gameplan
-# Do something similar to the GeoOpt Script
-# Create same table for the Final Single Point Energy
-# Dedicate one column to 5/2RT value (T = 295.15) (convert to hartree)
-# Create another 5 columns for the enthalpy values
-
 from ncl.Orca import OrcaOutputFile
-from Data import FUNCTIONALS, MOLECULES, ATOMS
+from Data import FUNCTIONALS, ATOMS
 import pandas as pd
 import os
+
+T = 298.15
+
+def getEnthalpyHartrees(tempK: float):
+    R = 8.314
+    HARTREE_TO_KJMOL = 2625.50    
+    return float(5/2) * R * tempK / (HARTREE_TO_KJMOL * 1000.0)
 
 # Initialize the Data Frame
 dataFrame = pd.DataFrame(
@@ -42,6 +42,13 @@ for atom in ATOMS:
         row.append(OrcaOutputFile(filePath).getFinalEnergy())
     
     dataFrame.loc[len(dataFrame)] = row
-    
+
+# Add the Enthalpy Correction to all columns
+dataFrame["Enthalpy Correction"] = [getEnthalpyHartrees(T) for i in range(len(dataFrame))]
+
+for i in range(len(FUNCTIONALS)):
+    energyColumn = dataFrame[dataFrame.columns[i+1]]
+    dataFrame[f"{FUNCTIONALS[i]} Enthalpy"] = energyColumn.values + dataFrame["Enthalpy Correction"].values
+
 print(dataFrame)
 dataFrame.to_csv("Results/AtomEnergies.csv", index=False)

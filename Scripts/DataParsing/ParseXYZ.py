@@ -1,9 +1,3 @@
-
-
-# Create a Table where we have one column for each molecule, then 6 columns for the number of types of atoms within the molecule
-# Maybe Add the enthalpy values for each atom type  
-# Find a way to combine all the tables and 
-
 from ncl import Molecule
 from Data import FUNCTIONALS, MOLECULES, ATOMS, ATOMS_ELEMENTS
 import pandas as pd
