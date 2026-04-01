@@ -1,13 +1,12 @@
 from ncl.Orca import OrcaOutputFile
-from Data import FUNCTIONALS, ATOMS
+from Data import FUNCTIONALS, ATOMS, HARTREE_TO_KJMOL
 import pandas as pd
 import os
 
 T = 298.15
 
 def getEnthalpyHartrees(tempK: float):
-    R = 8.314
-    HARTREE_TO_KJMOL = 2625.50    
+    R = 8.314 
     return float(5/2) * R * tempK / (HARTREE_TO_KJMOL * 1000.0)
 
 # Initialize the Data Frame

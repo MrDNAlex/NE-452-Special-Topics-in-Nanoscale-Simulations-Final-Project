@@ -1,3 +1,6 @@
+# Define the Conversion Factor
+HARTREE_TO_KJMOL = 2625.50
+
 # Define the functionals
 FUNCTIONALS = ["LDA", "PBE", "B3LYP", "B97X", "M062X"]
 
