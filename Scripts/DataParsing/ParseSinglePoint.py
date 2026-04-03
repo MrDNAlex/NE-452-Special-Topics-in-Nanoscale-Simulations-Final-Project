@@ -6,7 +6,7 @@ import os
 def Parse():
     T = 298.15
 
-    def getEnthalpyHartrees(tempK: float):
+    def getThermalCorrectionHartrees(tempK: float):
         R = 8.314 
         return float(5/2) * R * tempK / (HARTREE_TO_KJMOL * 1000.0)
 
@@ -46,12 +46,17 @@ def Parse():
     # Add the Experimental Enthalpy Corrections to reference later
     dataFrame["Experimental Enthalpy Correction"] = experimentalCorrection["Experimental Enthalpy Correction (Eh)"]
 
-    # Add the Enthalpy Correction to all columns
-    dataFrame["Thermal Enthalpy Correction"] = [getEnthalpyHartrees(T) for i in range(len(dataFrame))]
+    # Add the Thermal Correction to all rows
+    dataFrame["Thermal Correction"] = [getThermalCorrectionHartrees(T) for i in range(len(dataFrame))]
 
+    # Create the Columns for the Atomic Enthalpy for each Functional
     for i in range(len(FUNCTIONALS)):
         energyColumn = dataFrame[dataFrame.columns[i+1]]
-        dataFrame[f"{FUNCTIONALS[i]} Enthalpy"] = energyColumn.values + dataFrame["Thermal Enthalpy Correction"].values
+        dataFrame[f"{FUNCTIONALS[i]} Enthalpy"] = energyColumn.values + dataFrame["Thermal Correction"].values
+
+    # Get the columns for the Final Atomic Enthalpies of each Atomc for each Functional (Includes Experimental Correction)  
+    for i in range(len(FUNCTIONALS)):
+        dataFrame[f"Final Atom {FUNCTIONALS[i]} Enthalpy"] = dataFrame[f"{FUNCTIONALS[i]} Enthalpy"].values - dataFrame["Experimental Enthalpy Correction"].values 
 
     print(dataFrame)
     dataFrame.to_csv("Results/AtomEnthalpies.csv", index=False)
