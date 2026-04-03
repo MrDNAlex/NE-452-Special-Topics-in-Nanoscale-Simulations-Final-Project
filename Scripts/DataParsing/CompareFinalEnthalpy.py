@@ -14,19 +14,15 @@ def Compare():
 
     comparisonDataFrame = literatureEnthalpiesDataFrame.copy()
 
-    # Copy the Final Result Data Frames
+    # Copy the Final Result Data Frames, and create a kJ/mol equivalent
     for func in FUNCTIONALS:
-        columnName = f"Final {func} Enthalpy"
+        columnName = f"{func} Enthalpy of Formation"
         comparisonDataFrame[f"{columnName} (Eh)"] = masterDataFrame[columnName]
-
-    # Create a kJ/mol Equivalent
-    for func in FUNCTIONALS:
-        columnName = f"Final {func} Enthalpy"
         comparisonDataFrame[f"{columnName} (kJ/mol)"] = comparisonDataFrame[f"{columnName} (Eh)"] * HARTREE_TO_KJMOL
 
     # Get the Absolute Error of each functional
     for func in FUNCTIONALS:
-        calculationColumn = f"Final {func} Enthalpy (kJ/mol)"
+        calculationColumn = f"{func} Enthalpy of Formation (kJ/mol)"
         literatureColumn = "Lit Enthalpy (kJ/mol)"
         errorColumn = f"{func} Error (kJ/mol)"
         absErrorColumn = f"{func} Abs Error (kJ/mol)"
@@ -85,7 +81,7 @@ def Compare():
     ax.set_xticklabels(comparisonDataFrame['Molecule'], rotation=45, ha='right')
 
     # Draw manual category lines and labels
-    manualBoundaries = [8.5, 14.5]
+    manualBoundaries = [8.5, 13.5]
     manualCenters = [3.5, 11.0, 17.5]
     manualLabels = ['Alkanes', 'Organic', 'Pro-Drug']
 
