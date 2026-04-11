@@ -1,6 +1,7 @@
 from ParseXYZ import Parse as ParseXYZ
 from ParseSinglePoint import Parse as ParseSinglePoint
 from ParseGeoOpts import Parse as ParseGeoOpts
+from ParseTiming import Parse as ParseTiming
 from CalculateFinalEnthalpy import Parse as ParseFinalEnthalpy
 from CompareFinalEnthalpy import Compare as CompareFinalEnthalpy
 
@@ -8,5 +9,6 @@ from CompareFinalEnthalpy import Compare as CompareFinalEnthalpy
 ParseXYZ()
 ParseSinglePoint()
 ParseGeoOpts()
+ParseTiming()
 ParseFinalEnthalpy()
 CompareFinalEnthalpy()
