@@ -9,8 +9,6 @@ def Parse():
 
     masterDataFrame = enthalpyDataFrame.copy()
 
-    # Add a Column for the Number of certain Atoms in each molecule
-    # 
     # Multiply the Atomic Enthalpies by the number of Atoms contained in the molecule
     for i in range(1, len(xyzDataFrame.columns)):
         columnName = xyzDataFrame.columns[i]

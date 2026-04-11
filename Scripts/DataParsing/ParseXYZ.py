@@ -3,7 +3,6 @@ from Data import MOLECULES, ATOMS_ELEMENTS
 import pandas as pd
 import os
 
-
 def Parse():
     # Initialize the Data Frame
     dataFrame = pd.DataFrame(
@@ -18,8 +17,6 @@ def Parse():
         if len(files) == 0:
             continue
         
-        category = path.split("\\")[-1]
-
         # Add the files outright because no files are found
         for file in files:
             xyzFiles.append(os.path.join(path, file))

@@ -106,7 +106,7 @@ def Compare():
     plt.tight_layout()
     plt.savefig("Results/Plots/MAE_Molecule_Comparison.png")
 
-    # 1. Define the number of atoms for each molecule
+    # Define the number of atoms for each molecule
     atomCounts = {
         'Methane': 5, 'Ethane': 8, 'Propane': 11, 'Butane': 14, 
         'Pentane': 17, 'Hexane': 20, 'Heptane': 23, 'Octane': 26, 
