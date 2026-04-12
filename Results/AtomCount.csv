@@ -1,0 +1,21 @@
+Molecule Name,Hydrogen Count,Carbon Count,Nitrogen Count,Oxygen Count,Fluorine Count,Chlorine Count
+Methane,4,1,0,0,0,0
+Ethane,6,2,0,0,0,0
+Propane,8,3,0,0,0,0
+Butane,10,4,0,0,0,0
+Pentane,12,5,0,0,0,0
+Hexane,14,6,0,0,0,0
+Heptane,16,7,0,0,0,0
+Octane,18,8,0,0,0,0
+Nonane,20,9,0,0,0,0
+Aspirin,8,9,0,4,0,0
+Azobenzene,10,12,2,0,0,0
+Caffeine,10,8,4,2,0,0
+Ethanol,6,2,0,1,0,0
+Pyrrole,5,4,1,0,0,0
+Acetaminophen,9,8,1,2,0,0
+Diclofenac,11,14,1,2,0,2
+Ibuprofen,18,13,0,2,0,0
+Hydrocortisone,30,21,0,5,0,0
+Dexamethasone,29,22,0,5,1,0
+Prednisone,26,21,0,5,0,0
