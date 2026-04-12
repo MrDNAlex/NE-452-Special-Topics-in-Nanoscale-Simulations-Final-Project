@@ -1,2 +1,5 @@
 /venv
 /Cache
+/Data
+*.pyc
+/Data-Raw

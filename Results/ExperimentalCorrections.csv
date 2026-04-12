@@ -1,0 +1,7 @@
+Atom Name,Experimental Enthalpy Correction (Eh),Experimental Enthalpy Correction (Kj/mol),Source
+Hydrogen,0.08303142259,217.999,https://janaf.nist.gov/tables/H-001.html
+Carbon,0.2729651495,716.67,https://janaf.nist.gov/tables/C-003.html
+Nitrogen,0.1800354218,472.683,https://janaf.nist.gov/tables/N-002.html
+Oxygen,0.09490497048,249.173,https://janaf.nist.gov/tables/O-001.html
+Fluorine,0.0302380499,79.39,https://janaf.nist.gov/tables/F-001.html
+Chlorine,0.04620148543,121.302,https://janaf.nist.gov/tables/Cl-001.html
